@@ -48,6 +48,8 @@ export default class ModalDialog extends React.Component {
     componentIsLeaving: PropTypes.bool,
     style: PropTypes.object,
     sheet: PropTypes.object,
+    closeBackgroundFill: PropTypes.string,
+    closeXFill: PropTypes.string
   }
   static defaultProps = {
     width: 'auto',
@@ -136,6 +138,8 @@ export default class ModalDialog extends React.Component {
         sheet: {
           classes,
         },
+        closeBackgroundFill,
+        closeXFill,
         ...rest,
       },
     } = this;
@@ -159,7 +163,7 @@ export default class ModalDialog extends React.Component {
       {
         onClose ?
         <a className={classes.closeButton} onClick={onClose}>
-          <CloseCircle diameter={40}/>
+          <CloseCircle backgroundFill={closeBackgroundFill} diameter={40} xFill={closeXFill}/>
         </a> :
         null
       }
