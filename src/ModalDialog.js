@@ -34,6 +34,7 @@ import keycode from 'keycode';
     '&:hover': {
       transform: 'scale(1.1)',
     },
+    cursor: 'pointer'
   },
 })
 export default class ModalDialog extends React.Component {
