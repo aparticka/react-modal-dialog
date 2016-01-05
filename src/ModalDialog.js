@@ -63,7 +63,6 @@ export default class ModalDialog extends React.Component {
      * for events after its parent
      */
     this.eventToken = EventStack.addListenable([
-      ['click', this.handleGlobalClick],
       ['keydown', this.handleGlobalKeydown],
     ]);
   }
@@ -80,13 +79,6 @@ export default class ModalDialog extends React.Component {
 
     if (target === this.refs.self || this.refs.self.contains(target)) return false;
     return true;
-  }
-  handleGlobalClick = (event) => {
-    if (this.shouldClickDismiss(event)) {
-      if (typeof this.props.onClose == 'function') {
-        this.props.onClose();
-      }
-    }
   }
   handleGlobalKeydown = (event) => {
     if (keycode(event) == 'esc') {
