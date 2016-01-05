@@ -40,6 +40,7 @@ import keycode from 'keycode';
 export default class ModalDialog extends React.Component {
   static propTypes = {
     onClose: PropTypes.func, // required for the close button
+    onLoad: PropTypes.func,
     className: PropTypes.string, // css class in addition to .ReactModalDialog
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // width
     topOffset: PropTypes.number, // injected by @centerComponent
@@ -116,6 +117,10 @@ export default class ModalDialog extends React.Component {
       duration: 500,
       friction: 400,
     });
+
+    if (typeof this.props.onLoad === 'function') {
+      this.props.onLoad();
+    }
   }
   render = () => {
     const {
